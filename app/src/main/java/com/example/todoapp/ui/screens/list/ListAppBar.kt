@@ -1,10 +1,7 @@
 package com.example.todoapp.ui.screens.list
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
@@ -14,7 +11,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
@@ -30,14 +26,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import com.example.todoapp.R
 import com.example.todoapp.components.DisplayAlertDialog
 import com.example.todoapp.components.PriorityItem
 import com.example.todoapp.data.models.Priority
 import com.example.todoapp.ui.theme.LARGE_PADDING
-import com.example.todoapp.ui.theme.TOP_APP_BAR_HEIGHT
 import com.example.todoapp.ui.viewModels.SharedViewModels
 import com.example.todoapp.utils.Action
 import com.example.todoapp.utils.SearchAppBarState
@@ -84,13 +78,12 @@ fun DefaultListAppBar(
     onDeleteAllConfirmed: () -> Unit = {}
 ) {
 
-    TopAppBar(
-        title = {
-            Text(
-                text = stringResource(id = R.string.task_title),
-                color = MaterialTheme.colorScheme.onPrimary
-            )
-        },
+    TopAppBar(title = {
+        Text(
+            text = stringResource(id = R.string.task_title),
+            color = MaterialTheme.colorScheme.onPrimary
+        )
+    },
         actions = {
             ListAppBarActions(
                 onSearchClicked = onSearchClicked,
@@ -202,11 +195,14 @@ fun SearchAppBar(
     onCloseClicked: () -> Unit,
 ) {
 
-
-    TextField(
-        modifier = Modifier.fillMaxWidth(),
+    TextField(modifier = Modifier
+        .fillMaxWidth()
+        .padding(top = 24.dp),
         value = text,
-        onValueChange = { onTextChange(it) },
+        onValueChange = {
+            onTextChange(it)
+            onSearchClicked(it)
+        },
         placeholder = {
             Text(
                 text = stringResource(id = R.string.search_placeholder),
@@ -239,11 +235,5 @@ fun SearchAppBar(
                     contentDescription = stringResource(id = R.string.close_search_field),
                 )
             }
-        },
-        keyboardOptions = KeyboardOptions(
-            imeAction = ImeAction.Search
-        ),
-        keyboardActions = KeyboardActions(onSearch = { onSearchClicked(text) })
-    )
-
+        })
 }
