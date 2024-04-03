@@ -1,0 +1,8 @@
+<resources>
+
+    <style name="Base.Theme.SplashScreen." parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#3700B3</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_screen_foreground</item>
+        <item name="postSplashScreenTheme">@style/Theme.ToDoApp</item>
+    </style>
+</resources>
