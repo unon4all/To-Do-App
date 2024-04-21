@@ -32,12 +32,19 @@ import com.example.todoapp.components.DisplayAlertDialog
 import com.example.todoapp.components.PriorityItem
 import com.example.todoapp.data.models.Priority
 import com.example.todoapp.ui.theme.LARGE_PADDING
-import com.example.todoapp.ui.viewModels.SharedViewModels
+import com.example.todoapp.viewModels.SharedViewModels
 import com.example.todoapp.utils.Action
 import com.example.todoapp.utils.SearchAppBarState
 import com.example.todoapp.utils.SearchAppBarState.CLOSED
 import com.example.todoapp.utils.SearchAppBarState.OPENED
 
+/**
+ * A composable function that displays an app bar for a list, which can include a search functionality.
+ *
+ * @param sharedViewModels An instance of [SharedViewModels] to handle shared data and actions.
+ * @param searchAppBarState The state of the search app bar, either [SearchAppBarState.CLOSED] or [SearchAppBarState.OPENED].
+ * @param searchTextState The current text entered in the search bar.
+ */
 @Composable
 fun ListAppBar(
     sharedViewModels: SharedViewModels,
@@ -70,6 +77,16 @@ fun ListAppBar(
 
 }
 
+/**
+ * A default implementation of the top app bar for a task list screen.
+ *
+ * This composable provides a standard top app bar with a title and actions for common operations
+ * like search, sorting, and deleting all tasks.
+ *
+ * @param onSearchClicked Callback invoked when the search action is clicked.
+ * @param onSortClick Callback invoked when the sort action is clicked. It provides the selected priority as input.
+ * @param onDeleteAllConfirmed Callback invoked when the delete all action is clicked and confirmed by the user.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DefaultListAppBar(

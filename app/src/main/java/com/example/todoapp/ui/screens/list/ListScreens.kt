@@ -18,7 +18,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.todoapp.R
-import com.example.todoapp.ui.viewModels.SharedViewModels
+import com.example.todoapp.viewModels.SharedViewModels
 import com.example.todoapp.utils.Action
 import com.example.todoapp.utils.SearchAppBarState
 import kotlinx.coroutines.launch

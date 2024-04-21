@@ -10,7 +10,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.todoapp.ui.screens.task.TaskScreen
-import com.example.todoapp.ui.viewModels.SharedViewModels
+import com.example.todoapp.viewModels.SharedViewModels
 import com.example.todoapp.utils.Action
 import com.example.todoapp.utils.Constants.TASK_ARGUMENTS_KEY
 import com.example.todoapp.utils.Constants.TASK_SCREEN

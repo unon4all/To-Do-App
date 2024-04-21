@@ -18,9 +18,10 @@ import kotlinx.coroutines.flow.map
 import java.io.IOException
 import javax.inject.Inject
 
+// Extension property to provide easy access to DataStore
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = PREFERENCE_NAME)
 
-
+// Repository class to handle data storage and retrieval
 @ViewModelScoped
 class DataStoreRepository @Inject constructor(
     @ApplicationContext private val context: Context

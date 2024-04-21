@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.example.todoapp.data.models.Priority
 import com.example.todoapp.data.models.ToDoTask
-import com.example.todoapp.ui.viewModels.SharedViewModels
+import com.example.todoapp.viewModels.SharedViewModels
 import com.example.todoapp.utils.Action
 
 @Composable

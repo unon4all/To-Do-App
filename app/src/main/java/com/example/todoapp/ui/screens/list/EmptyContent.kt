@@ -17,6 +17,9 @@ import androidx.compose.ui.text.font.FontWeight
 import com.example.todoapp.R
 import com.example.todoapp.ui.theme.NO_TASK_ICON
 
+/**
+ * Composable function to display empty content with a sad face icon and a message.
+ */
 @Composable
 fun EmptyContent() {
     Column(

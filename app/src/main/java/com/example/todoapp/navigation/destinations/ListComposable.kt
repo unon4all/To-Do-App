@@ -10,7 +10,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.todoapp.ui.screens.list.ListScreens
-import com.example.todoapp.ui.viewModels.SharedViewModels
+import com.example.todoapp.viewModels.SharedViewModels
 import com.example.todoapp.utils.Action
 import com.example.todoapp.utils.Constants.LIST_ARGUMENTS_KEY
 import com.example.todoapp.utils.Constants.LIST_SCREEN

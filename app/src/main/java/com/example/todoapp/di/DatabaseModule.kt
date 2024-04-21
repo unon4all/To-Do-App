@@ -12,20 +12,32 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
+// Annotation to indicate that this module should be installed in the SingletonComponent
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
+    // Annotation to specify that this function provides a singleton instance of the database
     @Singleton
+    // Annotation to mark this function as providing a dependency
     @Provides
-    fun provideDatabase(
-        @ApplicationContext context: Context
-    ) = Room.databaseBuilder(
-        context = context, klass = TodoDatabase::class.java, name = DATABASE_NAME
-    ).build()
+    // Function to provide an instance of the TodoDatabase
+    fun provideDatabase(@ApplicationContext context: Context) =
+        // Building a Room database instance
+        Room.databaseBuilder(
+            // Context parameter for building the database
+            context = context,
+            // Class reference for the TodoDatabase
+            klass = TodoDatabase::class.java,
+            // Name of the database
+            name = DATABASE_NAME
+        ).build()
 
-
+    // Annotation to specify that this function provides a singleton instance of the DAO
     @Singleton
+    // Annotation to mark this function as providing a dependency
     @Provides
-    fun provideDao(database: TodoDatabase) = database.toDoDao()
-
+    // Function to provide an instance of the ToDoDao
+    fun provideDao(database: TodoDatabase) =
+        // Accessing the DAO from the provided TodoDatabase instance
+        database.toDoDao()
 }
